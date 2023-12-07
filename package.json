@@ -18,7 +18,7 @@
     "changeset-publish": "pnpm build && changeset publish",
     "format": "biome format . --write",
     "lint": "eslint . --ext .ts,.js --fix --ignore-path .gitignore",
-    "prepare": "husky install",
+    "prepare": "simple-git-hooks",
     "test": "vitest run -c config/vitest.config.ts",
     "test:cov": "vitest run --coverage -c config/vitest.config.ts",
     "test:dev": "vitest -c config/vitest.config.ts"
@@ -31,13 +31,18 @@
     "@typescript-eslint/parser": "^6.13.2",
     "@vitest/coverage-v8": "^1.0.1",
     "eslint": "^8.55.0",
-    "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
+    "simple-git-hooks": "^2.9.0",
     "tsup": "^7.2.0",
     "typescript": "^5.3.3",
     "vitest": "^1.0.1"
   },
   "lint-staged": {
-    "*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": "eslint --cache --fix"
+    "*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": "eslint --cache --fix",
+    "*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}": "biome format --write"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged",
+    "pre-push": "pnpm test"
   }
 }

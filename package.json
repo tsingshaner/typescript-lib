@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "description": "a lib template for typescript",
   "engines": {
-    "node": ">=18.17.0"
+    "node": ">=18.17.0",
+    "pnpm": ">=9.0.0"
   },
   "type": "module",
   "author": {
@@ -30,10 +31,10 @@
     "test:dev": "vitest -c config/vitest.config.ts"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.7.2",
+    "@biomejs/biome": "^1.7.3",
     "@changesets/cli": "^2.27.1",
     "@eslint/js": "^9.2.0",
-    "@types/node": "^20.12.8",
+    "@types/node": "^20.12.11",
     "@vitest/coverage-v8": "^1.6.0",
     "eslint": "^9.2.0",
     "globals": "^15.1.0",

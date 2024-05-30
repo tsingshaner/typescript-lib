@@ -32,9 +32,9 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.7.3",
-    "@changesets/cli": "^2.27.3",
+    "@changesets/cli": "^2.27.5",
     "@eslint/js": "^9.3.0",
-    "@types/node": "^20.12.12",
+    "@types/node": "^20.12.13",
     "@vitest/coverage-v8": "^1.6.0",
     "eslint": "^9.3.0",
     "globals": "^15.3.0",
@@ -42,7 +42,7 @@
     "simple-git-hooks": "^2.11.1",
     "tsup": "^8.0.2",
     "typescript": "^5.4.5",
-    "typescript-eslint": "8.0.0-alpha.13",
+    "typescript-eslint": "rc-v8",
     "vitest": "^1.6.0"
   },
   "lint-staged": {

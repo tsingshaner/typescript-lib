@@ -1,6 +1,6 @@
-import { add } from '@/core'
-
 import { describe } from 'vitest'
+
+import { add } from '@/core'
 
 describe('test core', (test) => {
   test('add function', ({ expect }) => {

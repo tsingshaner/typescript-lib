@@ -1,15 +1,15 @@
 {
-  "include": ["vitest.config.*", "tsup.config.*"],
   "compilerOptions": {
+    "composite": true,
+    "target": "ESNext",
     "lib": ["ESNext"],
     "rootDir": "..",
-    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
-    "composite": true,
-    "module": "ESNext"
-  }
+    "skipLibCheck": true
+  },
+  "include": ["vitest.config.*", "tsup.config.*"]
 }

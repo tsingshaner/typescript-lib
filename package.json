@@ -41,12 +41,12 @@
     "test:dev": "vitest -c config/vitest.config.ts"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.1",
+    "@biomejs/biome": "^1.9.2",
     "@changesets/cli": "^2.27.8",
-    "@qingshaner/eslint-config": "^0.2.0",
-    "@types/node": "^22.5.5",
+    "@qingshaner/eslint-config": "^0.4.1",
+    "@types/node": "^22.6.1",
     "@vitest/coverage-v8": "^2.1.1",
-    "eslint": "^9.10.0",
+    "eslint": "^9.11.1",
     "lint-staged": "^15.2.10",
     "simple-git-hooks": "^2.11.1",
     "tsup": "^8.3.0",

@@ -52,4 +52,3 @@ jobs:
           NPM_PACKAGE_NAME=$(echo '${{ steps.changesets.outputs.publishedPackages }}' | jq -r '.[0].name')
           echo "Syncing CNPM $NPM_PACKAGE_NAME"
           curl -X PUT "https://registry.npmmirror.com/${NPM_PACKAGE_NAME}/sync?publish=true&nodeps=false"
-

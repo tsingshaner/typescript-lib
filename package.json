@@ -7,7 +7,7 @@
     "name": "qingshaner",
     "url": "https://github.com/Jon-a-than"
   },
-  "license": "MIT",
+  "license": "ISC",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -18,9 +18,7 @@
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "engines": {
     "node": ">=20.0.0",
     "pnpm": ">=9.0.0"

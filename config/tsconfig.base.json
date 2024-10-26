@@ -5,6 +5,7 @@
     "skipLibCheck": true,
 
     "module": "ESNext",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "verbatimModuleSyntax": true,

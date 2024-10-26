@@ -1,8 +1,7 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "target": "ES2022",
-    "moduleResolution": "bundler",
+    "target": "ESNext",
     "resolveJsonModule": true,
 
     "lib": ["ES2023", "DOM"],

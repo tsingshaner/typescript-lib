@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "useDefineForClassFields": true,
+    "skipLibCheck": true,
+
+    "module": "ESNext",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "verbatimModuleSyntax": true,
+
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitThis": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}

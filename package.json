@@ -1,6 +1,6 @@
 {
-  "name": "template",
   "type": "module",
+  "name": "template",
   "version": "0.0.0",
   "description": "a lib template for typescript",
   "author": {

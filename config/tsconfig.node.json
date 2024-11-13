@@ -8,5 +8,5 @@
 
     "rootDir": ".."
   },
-  "include": ["vitest.config.*", "tsup.config.*"]
+  "include": ["../vite.config.ts"]
 }

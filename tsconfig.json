@@ -1,8 +1,4 @@
 {
-  "compilerOptions": {
-    "module": "Preserve",
-    "moduleResolution": "Bundler"
-  },
   "references": [
     {
       "path": "config/tsconfig.node.json"

@@ -17,6 +17,7 @@
   "typescript.tsdk": "node_modules\\typescript\\lib",
 
   "yaml.format.singleQuote": true,
+  "files.associations": { "*.json": "jsonc" },
 
   "[json]": {
     "editor.defaultFormatter": "biomejs.biome"

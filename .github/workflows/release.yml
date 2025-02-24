@@ -36,12 +36,12 @@ jobs:
         run: corepack enable
 
       - name: Install dependencies
-        run: pnpm i
+        run: corepack pnpm i
       - name: Unit Test
-        run: pnpm test
+        run: corepack pnpm test
 
       - name: Build app
-        run: pnpm build
+        run: corepack pnpm build
 
       - name: Create Release Pull Request
         id: changesets
@@ -49,9 +49,9 @@ jobs:
         with:
           commit: 'chore(release): update release & CHANGELOG.md'
           title: '📦 Update Packages Version'
-          publish: pnpm changeset-publish
+          publish: corepack pnpm changeset-publish
           version: |
-            pnpm changeset-version
+            corepack pnpm changeset-version
             NPM_PACKAGE_VERSION=$(jq -r '.version' package.json)
             sed -i -E "s/\"version\": \"[^\"]+\"/\"version\": \"${NPM_PACKAGE_VERSION}\"/" jsr.json
 
@@ -61,7 +61,7 @@ jobs:
 
       - name: Publish to JSR
         if: steps.changesets.outputs.published == 'true'
-        run: pnpm dlx jsr publish
+        run: corepack pnpm dlx jsr publish
 
       - name: CNPM sync the latest published package
         if: steps.changesets.outputs.published == 'true'

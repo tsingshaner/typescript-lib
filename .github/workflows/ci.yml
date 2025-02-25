@@ -18,24 +18,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        with:
-          run_install: false
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
 
       - name: Enable corepack
-        run: corepack enable
+        run: corepack enable & corepack install
 
       - name: Install dependencies
-        run: corepack pnpm i
+        run: pnpm i
 
       - name: Lint
-        run: corepack pnpm format && corepack pnpm lint
+        run: pnpm format && pnpm lint
 
       - uses: autofix-ci/action@ff86a557419858bb967097bfc916833f5647fa8c
         with:
@@ -43,7 +39,7 @@ jobs:
           comment: '🎨 Auto fix lint errors'
 
       - name: Unit test
-        run: corepack pnpm test:cov
+        run: pnpm test:cov
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         env:

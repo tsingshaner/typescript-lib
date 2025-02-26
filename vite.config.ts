@@ -23,8 +23,9 @@ export default defineConfig({
   },
   plugins: [
     dts({
+      copyDtsFiles: true,
       rollupTypes: true,
-      tsconfigPath: resolve(ROOT, 'config/tsconfig.app.json')
+      tsconfigPath: resolve(ROOT, '.config/tsconfig.app.json')
     })
   ],
   resolve: {

@@ -2,7 +2,7 @@ name: release
 
 on:
   push:
-    branches: ['main']
+    branches: [ 'main' ]
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -17,7 +17,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: ['22.14.0']
+        node-version: [ '22.22.2' ]
 
     steps:
       - uses: actions/checkout@v4

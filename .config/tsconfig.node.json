@@ -7,5 +7,5 @@
 
     "rootDir": ".."
   },
-  "include": ["../vite.config.ts"]
+  "include": ["../*.config.ts"]
 }

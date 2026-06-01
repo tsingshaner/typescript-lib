@@ -48,7 +48,7 @@
     "@vitest/coverage-v8": "^4.1.6",
     "eslint": "^10.4.0",
     "knip": "^6.14.1",
-    "lint-staged": "^17.0.4",
+    "lint-staged": "^17.0.7",
     "simple-git-hooks": "^2.13.1",
     "tsdown": "^0.22.0",
     "typescript": "^6.0.3",

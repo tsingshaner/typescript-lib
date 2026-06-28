@@ -2,7 +2,7 @@ name: release
 
 on:
   push:
-    branches: [ 'main' ]
+    branches: ['main']
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -17,21 +17,24 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [ '22.22.2' ]
+        node-version: ['26']
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 11
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
-
-      - name: Enable corepack
-        run: corepack enable & corepack install
+          cache: pnpm
 
       - name: Install dependencies
-        run: pnpm i
+        run: pnpm i --frozen-lockfile
       - name: Unit Test
         run: pnpm test
 

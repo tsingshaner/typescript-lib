@@ -33,36 +33,34 @@
     "build": "tsdown",
     "changeset-version": "changeset version",
     "changeset-publish": "changeset publish",
-    "format": "biome format . --write",
-    "knip": "knip",
-    "lint": "biome lint . --write && eslint . --fix",
+    "check": "biome check . --write",
+    "check:cspell": "cspell . --no-summary --no-progress --gitignore",
+    "check:type": "tsc --noEmit",
+    "check:knip": "knip",
     "prepare": "simple-git-hooks",
     "test": "vitest run",
     "test:cov": "vitest run --coverage"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.5.1",
-    "@changesets/cli": "^2.31.0",
-    "@qingshaner/eslint-config": "^2.0.0",
-    "@types/node": "^26.0.1",
-    "@vitest/coverage-v8": "^4.1.9",
-    "eslint": "^10.6.0",
-    "knip": "^6.21.0",
+    "@biomejs/biome": "^2.5.4",
+    "@changesets/cli": "^2.31.1",
+    "@qingshaner/devtools": "^0.0.3",
+    "@types/node": "^26.1.1",
+    "@vitest/coverage-v8": "^4.1.10",
+    "cspell": "^10.0.1",
+    "knip": "^6.27.0",
     "nano-staged": "^1.0.2",
     "simple-git-hooks": "^2.13.1",
-    "tsdown": "^0.22.3",
-    "typescript": "^6.0.3",
-    "vitest": "^4.1.9"
+    "tsdown": "^0.22.12",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm nano-staged",
-    "pre-push": "pnpm test"
+    "pre-push": "pnpm run --parallel '/(test|check|check:cspell|check:type|check:knip)/'"
   },
   "nano-staged": {
-    "*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": [
-      "pnpm biome lint --write",
-      "pnpm eslint --cache --fix"
-    ],
-    "*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}": "pnpm biome format --write"
+    "*": "pnpm cspell --no-summary --no-progress --no-must-find-files --file-list",
+    "*.{json,jsonc,js,jsx,cjs,mjs,ts,tsx,cts,mts,html,svg,css,vue}": "pnpm biome check --fix --files-ignore-unknown=true --no-errors-on-unmatched"
   }
 }

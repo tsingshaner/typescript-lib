@@ -21,8 +21,6 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@6
-        with:
-          version: 11
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v6
@@ -33,8 +31,8 @@ jobs:
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
 
-      - name: Lint
-        run: pnpm format && pnpm lint
+      - name: Check
+        run: pnpm run --parallel '/^check/'
 
       - uses: autofix-ci/action@551dded8c6cc8a1054039c8bc0b8b48c51dfc6ef
         with:

@@ -1,11 +1,10 @@
 {
-  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "target": "ESNext",
-
     "lib": ["ESNext"],
 
-    "rootDir": ".."
+    "rootDir": "..",
+    "target": "ESNext"
   },
+  "extends": "@qingshaner/devtools/tsconfig/base.json",
   "include": ["../*.config.ts"]
 }

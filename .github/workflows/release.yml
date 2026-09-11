@@ -41,18 +41,18 @@ jobs:
 
       - name: Create Release Pull Request
         id: changesets
-        uses: changesets/action@v1
+        uses: changesets/action@v2
         with:
-          commit: 'chore(release): update release & CHANGELOG.md'
-          title: '📦 Update Packages Version'
-          publish: pnpm changeset-publish
-          version: |
+          commit-message: 'chore(release): update release & CHANGELOG.md'
+          pr-title: '📦 Update Packages Version'
+          publish-script: pnpm changeset-publish
+          version-script: |
             pnpm changeset-version
             NPM_PACKAGE_VERSION=$(jq -r '.version' package.json)
             sed -i -E "s/\"version\": \"[^\"]+\"/\"version\": \"${NPM_PACKAGE_VERSION}\"/" jsr.json
 
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          npm_config_registry: https://registry.npmjs.org/
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish to JSR
@@ -62,6 +62,6 @@ jobs:
       - name: CNPM sync the latest published package
         if: steps.changesets.outputs.published == 'true'
         run: |
-          NPM_PACKAGE_NAME=$(echo '${{ steps.changesets.outputs.publishedPackages }}' | jq -r '.[0].name')
+          NPM_PACKAGE_NAME=$(echo '${{ steps.changesets.outputs.published-packages }}' | jq -r '.[0].name')
           echo "Syncing CNPM $NPM_PACKAGE_NAME"
           curl -X PUT "https://registry-direct.npmmirror.com/-/package/${NPM_PACKAGE_NAME}/syncs"

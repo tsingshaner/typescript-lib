@@ -6,9 +6,10 @@ export default defineConfig({
   },
   dts: {
     cjsReexport: true,
-    oxc: true
+    generator: 'oxc'
   },
   entry: 'src/index.ts',
+  fixedExtension: false,
   format: ['cjs', 'esm'],
   tsconfig: '.config/tsconfig.app.json'
 })

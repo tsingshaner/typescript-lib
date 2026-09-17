@@ -41,22 +41,22 @@
     "test:cov": "vitest run --coverage"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.5.13",
-    "@changesets/cli": "^3.0.2",
+    "@biomejs/biome": "^2.5.14",
+    "@changesets/cli": "^3.0.3",
     "@qingshaner/devtools": "^0.0.3",
-    "@types/node": "^26.5.1",
-    "@vitest/coverage-v8": "^5.0.0",
-    "cspell": "^10.3.1",
+    "@types/node": "^26.6.1",
+    "@vitest/coverage-v8": "^5.0.1",
+    "cspell": "^10.3.3",
     "knip": "^6.35.1",
     "nano-staged": "^1.0.2",
     "simple-git-hooks": "^2.14.0",
     "tsdown": "^0.23.0",
     "typescript": "^7.0.2",
-    "vitest": "^5.0.0"
+    "vitest": "^5.0.1"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm nano-staged",
-    "pre-push": "pnpm run '/(test|check|check:cspell|check:type|check:knip)/'"
+    "pre-push": "pnpm run '/^(test|check.*)$/'"
   },
   "nano-staged": {
     "*": "pnpm cspell --no-summary --no-progress --no-must-find-files --file-list",

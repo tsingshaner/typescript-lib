@@ -9,6 +9,7 @@ on:
       - main
 
 permissions:
+  contents: read
   id-token: write
 
 jobs:
@@ -37,7 +38,7 @@ jobs:
       - name: Check
         run: pnpm run '/^check/'
 
-      - uses: autofix-ci/action@c5b2d67aa2274e7b5a18224e8171550871fc7e4a
+      - uses: autofix-ci/action@v1
         with:
           commit-message: 'style: fix lint errors'
           comment: '🎨 Auto fix lint errors'
